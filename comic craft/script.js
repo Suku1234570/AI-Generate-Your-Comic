@@ -43,7 +43,7 @@ async function generateStory() {
     // ====================================
 
     const response = await fetch(
-      "http://localhost:3000/api/generate",
+      "/api/generate",
       {
         method: "POST",
 
@@ -332,7 +332,7 @@ async function generatePanelImages(panels) {
 
 
       const response = await fetch(
-        "http://localhost:3000/api/generate-image",
+        "/api/generate-image",
         {
           method: "POST",
 
@@ -765,7 +765,7 @@ async function saveComic() {
   try {
 
     const response = await fetch(
-      "http://localhost:3000/api/comics",
+      "/api/comics",
       {
         method: "POST",
 
@@ -817,14 +817,6 @@ async function saveComic() {
 
 }
 
-  alert("Comic saved successfully! 💾");
-
-
-  // Show saved comics
-
-  displaySavedComics();
-
-
 // ========================================
 // DISPLAY SAVED COMICS
 // ========================================
@@ -840,7 +832,7 @@ async function displaySavedComics() {
 
     const response =
       await fetch(
-        "http://localhost:3000/api/comics"
+        "/api/comics"
       );
 
     const data =
@@ -960,7 +952,7 @@ async function deleteDatabaseComic(id) {
 
     const response =
       await fetch(
-        `http://localhost:3000/api/comics/${id}`,
+        `/api/comics/${id}`,
         {
           method: "DELETE"
         }
@@ -1033,7 +1025,7 @@ if (loginForm) {
     try {
 
       const response = await fetch(
-        "http://localhost:3000/api/login",
+        "/api/login",
         {
           method: "POST",
 
@@ -1116,7 +1108,7 @@ if (registerBtn) {
 
         const response =
           await fetch(
-            "http://localhost:3000/api/register",
+            "/api/register",
             {
               method: "POST",
 
