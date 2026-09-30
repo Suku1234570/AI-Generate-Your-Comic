@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ComicCraft | AI Comic Story Creator</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <header class="navbar">
+    <div class="brand">
+      <span class="brand-icon">🎨</span>
+      <span>Comic<span>Craft</span></span>
+    </div>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#creator">Create Comic</a>
+      <a href="#saved">Saved Comics</a>
+      <button id="logoutBtn" class="btn small hidden">Logout</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero section">
+      <div class="hero-content">
+        <p class="eyebrow">✨ FRONTEND-ONLY AI COMIC CREATOR</p>
+        <h1>Turn Your Ideas Into <span>Comic Stories</span></h1>
+        <p class="hero-text">
+          Create fun stories, generate comic panels and save your creations
+          directly in your browser.
+        </p>
+        <a href="#creator" class="btn">Start Creating 🚀</a>
+      </div>
+
+      <div class="hero-art">
+        <div class="speech-bubble bubble-one">Wow!</div>
+        <div class="speech-bubble bubble-two">Let's create!</div>
+        <div class="hero-character">🦸‍♂️</div>
+        <div class="comic-burst">POW!</div>
+      </div>
+    </section>
+
+    <section id="loginSection" class="section narrow-section">
+
+  <div class="card login-card">
+
+    <h2>🔐 ComicCraft Login</h2>
+
+    <p class="muted">
+      Login or create a new account to use ComicCraft.
+    </p>
+
+    <form id="loginForm">
+
+      <label for="username">
+        Username
+      </label>
+
+      <input
+        id="username"
+        type="text"
+        placeholder="Enter username"
+        required
+      />
+
+      <label for="password">
+        Password
+      </label>
+
+      <input
+        id="password"
+        type="password"
+        placeholder="Enter password"
+        required
+      />
+
+      <button
+        class="btn full"
+        type="submit"
+        id="loginBtn"
+      >
+        🔐 Login
+      </button>
+
+    </form>
+
+    <p style="margin-top: 15px;">
+      New user?
+      <button
+        type="button"
+        id="registerBtn"
+        class="btn outline small"
+      >
+        Create Account
+      </button>
+    </p>
+
+  </div>
+
+</section>
+      <div class="card login-card">
+        <h2>🔐 Demo Login</h2>
+        <p class="muted">
+          This is a frontend demo. Your name is saved only in this browser.
+        </p>
+
+        <form id="loginForm">
+          <label for="username">Your Name</label>
+          <input id="username" type="text" placeholder="Enter your name" required />
+          <button class="btn full" type="submit">Login</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="creator" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">🪄 STORY STUDIO</p>
+        <h2>Create Your Comic</h2>
+        <p class="muted">Choose your idea and generate a demo comic story.</p>
+      </div>
+
+      <div class="creator-grid">
+        <div class="card">
+          <h3>1. Story Settings</h3>
+
+          <label for="storyIdea">Story Idea</label>
+          <textarea id="storyIdea" rows="4"
+            placeholder="Example: A student discovers a magical pencil..."></textarea>
+
+          <label for="genre">Genre</label>
+          <select id="genre">
+            <option value="Adventure">Adventure</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Fantasy">Fantasy</option>
+            <option value="Science Fiction">Science Fiction</option>
+            <option value="Friendship">Friendship</option>
+          </select>
+
+          <label for="panelCount">Number of Panels</label>
+          <select id="panelCount">
+            <option value="4">4 Panels</option>
+            <option value="6" selected>6 Panels</option>
+            <option value="8">8 Panels</option>
+          </select>
+
+          <button id="generateBtn" class="btn full">
+            ✨ Generate Demo Story
+          </button>
+        </div>
+
+        <div class="card preview-card">
+          <div class="preview-header">
+            <h3>2. Story Preview</h3>
+            <span id="statusBadge" class="badge">Ready</span>
+          </div>
+
+          <h2 id="storyTitle">Your Comic Title</h2>
+          <p id="storySummary" class="muted">
+            Your generated story summary will appear here.
+          </p>
+
+          <div class="character-box">
+            <strong>Characters</strong>
+            <ul id="charactersList">
+              <li>Your characters will appear here.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="comicSection" class="section hidden">
+      <div class="section-heading">
+        <p class="eyebrow">🖼️ COMIC CANVAS</p>
+        <h2 id="comicHeading">Your Comic</h2>
+        <p class="muted">Read your story panel by panel.</p>
+      </div>
+
+      <div id="comicGrid" class="comic-grid"></div>
+
+      <div class="action-row">
+        <button id="saveBtn" class="btn">💾 Save Comic</button>
+        <button id="pdfBtn" class="btn secondary">📄 Export PDF</button>
+        <button id="newBtn" class="btn outline">🔄 New Comic</button>
+      </div>
+    </section>
+
+    <section id="saved" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">📚 YOUR COLLECTION</p>
+        <h2>Saved Comics</h2>
+        <p class="muted">Saved comics are stored securely in the ComicCraft database.</p>
+      </div>
+
+      <div id="savedList" class="saved-list">
+        <p class="muted">No comics saved yet.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 ComicCraft | B.Sc Computer Science Project</p>
+  </footer>
+
+  <div id="toast" class="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
