@@ -336,10 +336,10 @@ Make the story creative and suitable for a comic.
 
   try {
 
-    console.log("Trying Gemini model: gemini-3.8-flash");
+    console.log("Trying Gemini model: gemini-2.5-flash");
 
     const response = await ai.models.generateContent({
-      model: "gemini-3.8-flash",
+      model: "gemini-2.5-flash",
       contents: prompt
     });
 
